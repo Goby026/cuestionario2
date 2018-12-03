@@ -1,0 +1,111 @@
+
+<form [formGroup]="forma" (ngSubmit)="guardarCambios()">
+    <!-- novalidate: para que no haga la validacion del html5 -->
+    <div class="form-group" [ngClass]="{ 'has-danger': !forma.get('nombre').valid }">
+      <label for="nombre">Nombres</label>
+      <input type="text" 
+          class="form-control"
+          formControlName="nombre"
+          aria-describedby="nombresHelp" 
+          placeholder="Nombres">
+      <small id="nombresHelp" class="form-text text-muted">Ingrese sus nombres completos</small>
+      <div *ngIf="forma.controls['nombre'].errors?.required"
+        class="form-control-feedback">
+        El nombre es necesario
+      </div>
+      <div *ngIf="forma.controls['nombre'].errors?.minlength"
+        class="form-control-feedback">
+        Mínimo 3 caracteres
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="apellido">Apellidos</label>
+      <input type="text" 
+            class="form-control"
+            formControlName="apellido"
+            aria-describedby="apellidosHelp" 
+            placeholder="Apellidos">
+      <small id="apellidosHelp" class="form-text text-muted">Ingrese sus apellidos completos</small>
+      <div *ngIf="forma.controls['apellido'].errors?.required"
+        class="form-control-feedback">
+        Los apellidos son necesarios
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="dni">DNI</label>
+      <input type="text"
+            class="form-control"
+            formControlName="dni"
+            aria-describedby="dniHelp" 
+            placeholder="DNI">
+      <small id="dniHelp" class="form-text text-muted">Documento de identificación</small>
+      <div *ngIf="forma.controls['dni'].errors?.required"
+        class="form-control-feedback">
+        El dni es necesario
+      </div>
+    </div>
+  
+    <div class="form-group">
+        <label for="correo">Dirección de correo</label>
+        <input type="email" 
+            class="form-control"
+            formControlName="correo"
+            aria-describedby="correoHelp" 
+            placeholder="Correo electrónico">
+        <small id="correoHelp" class="form-text text-muted">Indique su correo personal</small>
+        <div *ngIf="forma.controls['dni'].errors?.required"
+          class="form-control-feedback">
+          Debe indicar su correo electrónico
+        </div>
+    </div>    
+  
+    <div class="form-group">
+        <!-- <iframe (click)="mostrar()" src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FPeruDataOficial%2F&width=92&layout=button&action=like&size=large&show_faces=false&share=false&height=65&appId=295309317772902" width="92" height="30" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe> -->
+        <fb-like (click)="mostrar()" href="https://www.facebook.com/PeruDataOficial/"></fb-like>
+        <small id="likeHelp" class="form-text text-muted">Like a la página de facebook de Perú Data</small>
+    </div>
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Acepto los </label><a type="button" class="alert-link" data-toggle="modal" data-target="#exampleModalCenter">
+          Términos y condiciones
+      </a>
+    </div>
+    <button type="submit" class="btn btn-primary">Registrar</button>
+    <div class="form-control-feedback">
+        {{ mensaje }}
+    </div>
+  </form>
+
+<!-- Modal -->
+<div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Términos y Condiciones del Sorteo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ul class="list-unstyled">
+          <li>1.	Válido desde el 03/12/18 hasta el 20/12/18.</li>
+          <li>2.	Sorteo se realizara entre todas las persona que se registren y completen la encuesta de nuestra web.</li>
+          <li>3.	Dar like a la página de PeruData Facebook.</li>
+          <li>4.	No podrán participar de la promoción empleados de PerúData.</li>
+          <li>5.	El premio es intransferible y no podrá ser canjeado por dinero en efectivo u otro producto.</li>
+          <li>6.	El premio tendrá validez 60 días, a partir de la fecha del sorteo, quedando sin efecto una vez cumplido ese plazo. No pudiendo ser reclamado transcurrido el plazo señalado.</li>
+          <li>7.	El participante, autoriza a PerúData a publicar su nombre de resultar ganador del sorteo.</li>
+          <li>8.	El sorteo se realizará en una transmisión en vivo vía Facebook el día viernes 21/12/18, a las 07:00 p.m.</li>
+          <li>9.	Nos comunicaremos con el ganador para coordinar la  entrega del premio</li>
+          <li>10.	El premio será entregado en las oficinas de la ciudad de Lima (Jr. José Manuel Ugarteche Nº 652 – Pueblo Libre) o Huancayo (Av. Centenario Nº 382 - Huancayo).</li>
+          <li>11.	Perú data no asume costos de envió a otras ciudades, estas serán asumidas por el ganador.</li>          
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,226 @@
+<h2>Gracias por participar {{ cliente }}, por favor rellena la siguiente encuesta.</h2>
+<hr>
+<form [formGroup]="forma" (ngSubmit)="guardarEncuesta()">
+<ul class="list-group">
+  <li class="list-group-item">
+    <!-- pregunta 1 -->
+    <div class="form-group" formGroupName="pregunta1">
+        <label>1: ¿Con que dispositivo te conectas más a internet?</label><br>
+        <div class="form-check form-check-inline">
+          <input type="radio" 
+                class="form-check-input"
+                formControlName="opcion1"
+                id="1a"
+                [value]="1">
+          <label class="form-check-label" for="1a">Tablet</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input type="radio" 
+                class="form-check-input" 
+                formControlName="opcion2"
+                id="1b"
+                [value]="1">
+          <label class="form-check-label" for="1b">Laptop</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input type="radio" class="form-check-input" id="1pc" name="uno">
+          <label class="form-check-label" for="1pc">PC de escritorio</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input type="radio" class="form-check-input" id="1smartphone" name="uno">
+          <label class="form-check-label" for="1smartphone">Smartphone</label>
+        </div>
+      </div>
+  </li>
+  <li class="list-group-item">
+    <!-- pregunta 2 -->
+    <div class="form-group">
+        <label>2: ¿Con que equipo te identificas más?</label><br>
+        <div class="form-check form-check-inline">
+          <input type="checkbox" class="form-check-input" id="2tablet">
+          <label class="form-check-label" for="2tablet">Tablet</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input type="checkbox" class="form-check-input" id="2laptop">
+          <label class="form-check-label" for="2laptop">Laptop</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input type="checkbox" class="form-check-input" id="2pc">
+          <label class="form-check-label" for="2pc">PC de escritorio</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input type="checkbox" class="form-check-input" id="2smartphone">
+          <label class="form-check-label" for="2smartphone">Smartphone</label>
+        </div>
+      </div>
+  </li>
+  <li class="list-group-item">
+    <!-- pregunta 3 -->
+    <div class="form-group">
+      <label>3: Ordene en importancia por su utilidad (1 más importante – 4 menos importante)</label><br>
+      <div class="form-group-lg" style="width: 25%">
+        <label class="form-check-label" for="3pc">PC de escritorio</label>
+        <input type="text" class="form-control" id="3pc">
+      </div>
+      <div class="form-group-lg" style="width: 25%">
+        <label class="form-check-label" for="3tablet">Tablet</label>
+        <input type="text" class="form-control" id="3tablet">
+      </div>
+      <div class="form-group-lg" style="width: 25%">
+        <label class="label-info" for="3laptop">Laptop</label>
+        <input type="text" class="form-control" id="3laptop">
+      </div>
+
+      <div class="form-group-lg" style="width: 25%">
+        <label class="form-check-label" for="3smartphone">Smartphone</label>
+        <input type="text" class="form-control" id="3smartphone">
+      </div>
+    </div>
+  </li>
+  <li class="list-group-item">
+    <!-- pregunta 4 -->
+    <div class="form-group">
+      <label>4: Ordene en importancia por su utilidad (1 más importante – 4 menos importante)</label><br>
+      <div class="form-row">
+        <div class="form-group col-md-3" *ngFor="let marca of marcas">
+          <label for="inputEmail4">{{ marca.nombre }}</label>
+          <input type="email" class="form-control" [id]="marca.id">
+        </div>
+      </div>
+    </div>
+  </li>
+  <li class="list-group-item">
+    <!-- pregunta 5 -->
+    <div class="form-group">
+        <label>5: ¿En qué dispositivo realiza Ud. Mayormente sus trabajos?</label><br>
+        <div class="form-check form-check-inline">
+          <input type="checkbox" class="form-check-input" id="5tablet">
+          <label class="form-check-label" for="5tablet">Tablet</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input type="checkbox" class="form-check-input" id="5laptop">
+          <label class="form-check-label" for="5laptop">Laptop</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input type="checkbox" class="form-check-input" id="5pc">
+          <label class="form-check-label" for="5pc">PC de escritorio</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input type="checkbox" class="form-check-input" id="5smartphone">
+          <label class="form-check-label" for="5smartphone">Smartphone</label>
+        </div>
+      </div>
+  </li>
+  <li class="list-group-item">
+    <!-- pregunta 6 -->
+    <div class="form-group">
+        <label >6: ¿En qué dispositivo le gustaría realizar sus trabajos?</label><br>
+        <div class="form-check form-check-inline">
+          <input type="checkbox" class="form-check-input" id="6tablet">
+          <label class="form-check-label" for="6tablet">Tablet</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input type="checkbox" class="form-check-input" id="6laptop">
+          <label class="form-check-label" for="6laptop">Laptop</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input type="checkbox" class="form-check-input" id="6pc">
+          <label class="form-check-label" for="6pc">PC de escritorio</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input type="checkbox" class="form-check-input" id="6smartphone">
+          <label class="form-check-label" for="6smartphone">Smartphone</label>
+        </div>
+      </div>
+  </li>
+  <li class="list-group-item">
+    <!-- pregunta 7 -->
+    <div class="form-group">
+        <label>7: ¿En que utiliza más tu laptop?</label><br>
+        <div class="form-check form-check-inline">
+          <input type="checkbox" class="form-check-input" id="7academico">
+          <label class="form-check-label" for="7academico">Académico</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input type="checkbox" class="form-check-input" id="7laboral">
+          <label class="form-check-label" for="7laboral">Laboral</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input type="checkbox" class="form-check-input" id="7redes">
+          <label class="form-check-label" for="7redes">Redes sociales</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input type="checkbox" class="form-check-input" id="7juegos">
+          <label class="form-check-label" for="7juegos">Juegos</label>
+        </div>
+      </div>
+  </li>
+  <li class="list-group-item">
+    <!-- pregunta 8 -->
+    <div class="form-group">
+        <label>8: ¿Cuánto cuesta la laptop que requieres para todo lo que haces?</label><br>
+        <div class="form-check form-check-inline">
+          <input type="checkbox" class="form-check-input" id="8a">
+          <label class="form-check-label" for="8a">Más de S/ 1500</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input type="checkbox" class="form-check-input" id="8b">
+          <label class="form-check-label" for="8b">Hasta S/ 2500</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input type="checkbox" class="form-check-input" id="8c">
+          <label class="form-check-label" for="8c">Hasta S/ 3500</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input type="checkbox" class="form-check-input" id="8d">
+          <label class="form-check-label" for="8d">Más de S/ 4500</label>
+        </div>
+      </div>
+  </li>
+  <li class="list-group-item">
+    <!-- pregunta 9 -->
+    <div class="form-group">
+      <label>9: Ordene, que características son más importantes en un laptop (1 más importante – 4 menos importante)</label><br>
+      <div class="form-group-lg" style="width: 25%">
+        <label class="form-check-label" for="9a">Velocidad</label>
+        <input type="text" class="form-control" id="9a">
+      </div>
+      <div class="form-group-lg" style="width: 25%">
+        <label class="form-check-label" for="9b">Potencia</label>
+        <input type="text" class="form-control" id="9b">
+      </div>
+      <div class="form-group-lg" style="width: 25%">
+        <label class="label-info" for="9c">Diseño</label>
+        <input type="text" class="form-control" id="9c">
+      </div>
+      <div class="form-group-lg" style="width: 25%">
+        <label class="form-check-label" for="9d">Precio</label>
+        <input type="text" class="form-control" id="9d">
+      </div>
+    </div>
+  </li>
+  <li class="list-group-item">
+    <!-- pregunta 10 -->
+    <div class="form-group">
+      <label>10: ¿Qué animal describe mejor a tu laptop?</label><br>
+      <div class="form-check form-check-inline">
+        <input type="checkbox" class="form-check-input" id="10a">
+        <label class="form-check-label" for="10a">Tablet</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input type="checkbox" class="form-check-input" id="10b">
+        <label class="form-check-label" for="10b">Laptop</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input type="checkbox" class="form-check-input" id="10c">
+        <label class="form-check-label" for="10c">PC de escritorio</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input type="checkbox" class="form-check-input" id="10d">
+        <label class="form-check-label" for="10d">Smartphone</label>
+      </div>
+    </div>
+  </li>
+</ul>
+<button type="submit" class="btn btn-primary">Enviar encuesta</button>
+</form>
