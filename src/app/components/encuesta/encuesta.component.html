@@ -7,53 +7,71 @@
     <div class="form-group" formGroupName="pregunta1">
         <label>1: ¿Con que dispositivo te conectas más a internet?</label><br>
         <div class="form-check form-check-inline">
-          <input type="radio" 
-                class="form-check-input"
-                formControlName="opcion1"
-                id="1a"
-                [value]="1">
-          <label class="form-check-label" for="1a">Tablet</label>
+            <div *ngFor="let dispositivo of dispositivos">
+                <input type="hidden"
+                       name="id"
+                       formControlName="id"
+                       [value]="dispositivo.codi">
+                <input type="radio"
+                       class="form-check-input"
+                       name="opcion"
+                       formControlName="opcion"
+                       id="{{ dispositivo.nombre + 1 }}"
+                       [value]="dispositivo.nombre" style="margin-left: 15px;">
+                <label class="form-check-label" for="{{ dispositivo.nombre + 1 }}">{{ dispositivo.nombre }}</label>
+            </div>
         </div>
-        <div class="form-check form-check-inline">
-          <input type="radio" 
-                class="form-check-input" 
-                formControlName="opcion2"
-                id="1b"
-                [value]="1">
-          <label class="form-check-label" for="1b">Laptop</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input type="radio" class="form-check-input" id="1pc" name="uno">
-          <label class="form-check-label" for="1pc">PC de escritorio</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input type="radio" class="form-check-input" id="1smartphone" name="uno">
-          <label class="form-check-label" for="1smartphone">Smartphone</label>
-        </div>
+        <!--<div class="form-check form-check-inline">-->
+          <!--<input type="radio" -->
+                <!--class="form-check-input" -->
+                <!--formControlName="opcion2"-->
+                <!--id="1b"-->
+                <!--[value]="1">-->
+          <!--<label class="form-check-label" for="1b">Laptop</label>-->
+        <!--</div>-->
+        <!--<div class="form-check form-check-inline">-->
+          <!--<input type="radio" class="form-check-input" id="1pc" name="uno">-->
+          <!--<label class="form-check-label" for="1pc">PC de escritorio</label>-->
+        <!--</div>-->
+        <!--<div class="form-check form-check-inline">-->
+          <!--<input type="radio" class="form-check-input" id="1smartphone" name="uno">-->
+          <!--<label class="form-check-label" for="1smartphone">Smartphone</label>-->
+        <!--</div>-->
       </div>
   </li>
-  <li class="list-group-item">
-    <!-- pregunta 2 -->
-    <div class="form-group">
-        <label>2: ¿Con que equipo te identificas más?</label><br>
-        <div class="form-check form-check-inline">
-          <input type="checkbox" class="form-check-input" id="2tablet">
-          <label class="form-check-label" for="2tablet">Tablet</label>
+    <li class="list-group-item">
+        <!-- pregunta 2 -->
+        <div class="form-group" formGroupName="pregunta2">
+            <label>2: ¿Con que equipo te identificas más?</label><br>
+
+            <div class="form-check form-check-inline">
+                <div *ngFor="let dispositivo of dispositivos">
+                    <input type="hidden"
+                           name="id"
+                           formControlName="id"
+                           [value]="dispositivo.codi">
+                    <input type="radio"
+                           class="form-check-input"
+                           name="opcion"
+                           formControlName="opcion"
+                           id="{{ dispositivo.nombre + 2 }}" style="margin-left: 15px;">
+                    <label class="form-check-label" for="{{ dispositivo.nombre + 2 }}">{{ dispositivo.nombre }}</label>
+                </div>
+            </div>
+            <!--<div class="form-check form-check-inline">-->
+            <!--<input type="checkbox" class="form-check-input" id="2laptop">-->
+            <!--<label class="form-check-label" for="2laptop">Laptop</label>-->
+            <!--</div>-->
+            <!--<div class="form-check form-check-inline">-->
+            <!--<input type="checkbox" class="form-check-input" id="2pc">-->
+            <!--<label class="form-check-label" for="2pc">PC de escritorio</label>-->
+            <!--</div>-->
+            <!--<div class="form-check form-check-inline">-->
+            <!--<input type="checkbox" class="form-check-input" id="2smartphone">-->
+            <!--<label class="form-check-label" for="2smartphone">Smartphone</label>-->
+            <!--</div>-->
         </div>
-        <div class="form-check form-check-inline">
-          <input type="checkbox" class="form-check-input" id="2laptop">
-          <label class="form-check-label" for="2laptop">Laptop</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input type="checkbox" class="form-check-input" id="2pc">
-          <label class="form-check-label" for="2pc">PC de escritorio</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input type="checkbox" class="form-check-input" id="2smartphone">
-          <label class="form-check-label" for="2smartphone">Smartphone</label>
-        </div>
-      </div>
-  </li>
+    </li>
   <li class="list-group-item">
     <!-- pregunta 3 -->
     <div class="form-group">
@@ -80,7 +98,7 @@
   <li class="list-group-item">
     <!-- pregunta 4 -->
     <div class="form-group">
-      <label>4: Ordene en importancia por su utilidad (1 más importante – 4 menos importante)</label><br>
+      <label>4: Ordene las marcas según preferencia (1 más preferido – 4 menos preferido)</label><br>
       <div class="form-row">
         <div class="form-group col-md-3" *ngFor="let marca of marcas">
           <label for="inputEmail4">{{ marca.nombre }}</label>
